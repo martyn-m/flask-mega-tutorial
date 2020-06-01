@@ -1,11 +1,14 @@
+import os
+import logging
+from logging.handlers import SMTPHandler, RotatingFileHandler
+
 from flask import Flask
-from config import Config
+from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-import logging
-from logging.handlers import SMTPHandler, RotatingFileHandler
-import os
+
+from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -13,6 +16,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login' # where to send users requiring login
+mail = Mail(app)
 
 # Set up an email log handler
 # only if not in debug and MAIL_SERVER present in environment vars
@@ -47,4 +51,3 @@ if not app.debug:
     app.logger.info('Microblog startup')
 
 from app import routes, models, errors
-
