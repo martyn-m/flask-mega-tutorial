@@ -23,7 +23,7 @@ __pycache__
 pip-log.txt
 
 # Translations
-*.mo
+*.pot
 
 # VS Code
 .vscode
@@ -32,3 +32,4 @@ pylintrc
 venv
 app.db
 microblog.log*
+

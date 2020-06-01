@@ -1,4 +1,4 @@
-from app import app, db
+from app import app, db, cli
 from app.models import User, Post
 
 # Define the symbols to import to a 'flask shell' session
