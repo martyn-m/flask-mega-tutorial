@@ -7,6 +7,7 @@ from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_bootstrap import Bootstrap
 
 from config import Config
 
@@ -17,6 +18,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login' # where to send users requiring login
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 
 # Set up an email log handler
 # only if not in debug and MAIL_SERVER present in environment vars
