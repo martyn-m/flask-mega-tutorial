@@ -91,6 +91,7 @@ class Post(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     # ForeignKey links this user_id field to the id field in the users table
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
     
     def __repr__(self):
         return '<Post {}>'.format(self.body)

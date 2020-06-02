@@ -32,4 +32,4 @@ pylintrc
 venv
 app.db
 microblog.log*
-
+.env
